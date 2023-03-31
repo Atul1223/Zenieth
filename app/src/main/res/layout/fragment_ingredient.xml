@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_transparent"
+    tools:context=".ui.IngredientFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_horizontal_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_horizontal_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingredients"
+        style="@style/AppBoldText"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/g_horizontal_start"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_ingredients_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00/10"
+        style="@style/AppNormalText"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/g_horizontal_start"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ingredients_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/g_horizontal_start"
+        app:layout_constraintBottom_toTopOf="@id/g_horizontal_end"/>
+
+    <GridView
+        android:id="@+id/gv_ingredients"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintVertical_bias="0"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g_horizontal_start"
+        app:layout_constraintBottom_toTopOf="@id/g_horizontal_end"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_start_cooking"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/AppNormalText"
+        android:textColor="@color/white"
+        android:text="Start Cooking"
+        android:gravity="center"
+        android:layout_marginHorizontal="35dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g_horizontal_end"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

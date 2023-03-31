@@ -11,4 +11,10 @@
     <color name="color_app_background">#EEEFF3</color>
     <color name="color_app_bold_text">#333333</color>
     <color name="color_app_text_normal">#20294C</color>
+
+    <color name="color_transparent">#00FFFFFF</color>
+    <color name="color_transparent_black_10">#33000000</color>
+
+    <color name="color_button_active">#C84771</color>
+    <color name="color_button_pressed">#BC305D</color>
 </resources>
