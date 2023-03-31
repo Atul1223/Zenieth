@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppNormalText">
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/color_app_bold_text</item>
+    </style>
+
+    <style name="AppBoldText">
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/color_app_text_normal</item>
+    </style>
+</resources>
