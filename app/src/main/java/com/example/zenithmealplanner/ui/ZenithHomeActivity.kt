@@ -7,6 +7,7 @@ import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.zenithmealplanner.R
 import com.example.zenithmealplanner.databinding.ActivityZenithHomeBinding
+import com.example.zenithmealplanner.viewModel.NavigationViewModel
 
 class ZenithHomeActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class ZenithHomeActivity : AppCompatActivity() {
         binding = ActivityZenithHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        showFragment(ChooseMealFragment.getInstance())
+        showFragment(SearchIngredientFragment.getInstance())
     }
 
     fun showFragment(fragment: Fragment, addToBackStack: Boolean = true) {
