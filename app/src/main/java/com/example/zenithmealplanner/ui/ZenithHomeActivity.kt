@@ -16,7 +16,7 @@ class ZenithHomeActivity : AppCompatActivity() {
         binding = ActivityZenithHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        showFragment(IngredientFragment.getInstance())
+        showFragment(ChooseMealFragment.getInstance())
     }
 
     fun showFragment(fragment: Fragment, addToBackStack: Boolean = true) {
