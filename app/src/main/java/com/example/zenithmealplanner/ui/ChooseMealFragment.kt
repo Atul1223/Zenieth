@@ -5,11 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import android.widget.TextView
 import com.example.zenithmealplanner.R
-import com.example.zenithmealplanner.databinding.FragmentChooseMealBinding
-import com.example.zenithmealplanner.databinding.FragmentIngredientBinding
-import com.example.zenithmealplanner.ui.adapters.IngredientItemsAdapter
 
 class ChooseMealFragment : Fragment() {
 
@@ -19,22 +16,29 @@ class ChooseMealFragment : Fragment() {
         }
     }
 
-    private lateinit var binding: FragmentChooseMealBinding
+    private lateinit var view: View
+    private lateinit var prepareMealButton: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentChooseMealBinding.inflate(layoutInflater)
-        return binding.root
+        view = layoutInflater.inflate(R.layout.fragment_choose_meal,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initViews()
+
         initListener()
 
         initObservers()
+    }
+
+    private fun initViews() {
+        prepareMealButton = view.findViewById(R.id.btn_prepare_meal)
     }
 
     private fun initObservers() {
@@ -42,7 +46,7 @@ class ChooseMealFragment : Fragment() {
     }
 
     private fun initListener() {
-        binding.btnPrepareMeal.setOnClickListener {
+        prepareMealButton.setOnClickListener {
 
         }
     }

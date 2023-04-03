@@ -6,13 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.zenithmealplanner.R
-import com.example.zenithmealplanner.databinding.FragmentChooseMealBinding
-import com.example.zenithmealplanner.databinding.FragmentLoadingAnimationBinding
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class LoadingAnimationFragment : Fragment() {
     companion object {
@@ -21,14 +14,14 @@ class LoadingAnimationFragment : Fragment() {
         }
     }
 
-    private lateinit var binding: FragmentLoadingAnimationBinding
+    private lateinit var view: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoadingAnimationBinding.inflate(layoutInflater)
-        return binding.root
+        view = layoutInflater.inflate(R.layout.fragment_loading_animation,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

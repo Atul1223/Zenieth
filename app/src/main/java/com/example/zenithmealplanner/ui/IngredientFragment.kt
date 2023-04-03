@@ -1,16 +1,15 @@
 package com.example.zenithmealplanner.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.zenithmealplanner.databinding.FragmentIngredientBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.example.zenithmealplanner.R
 import com.example.zenithmealplanner.ui.adapters.IngredientItemsAdapter
 import com.example.zenithmealplanner.viewModel.NavigationViewModel
 
@@ -22,7 +21,9 @@ class IngredientFragment : Fragment() {
         }
     }
 
-    private lateinit var binding: FragmentIngredientBinding
+    private lateinit var view: View
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var startCookingButton: TextView
     private lateinit var adapter: IngredientItemsAdapter
     private val navigationViewModel: NavigationViewModel by activityViewModels()
 
@@ -30,8 +31,8 @@ class IngredientFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentIngredientBinding.inflate(layoutInflater)
-        return binding.root
+        view = layoutInflater.inflate(R.layout.fragment_ingredient,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,22 +40,29 @@ class IngredientFragment : Fragment() {
 
         initViews()
 
+        initRecyclerView()
+
         initListener()
 
         initObservers()
     }
 
-    private fun initViews() {
+    private fun initRecyclerView() {
         adapter = IngredientItemsAdapter()
-        binding.rvIngredientsItem.adapter = adapter
-        binding.rvIngredientsItem.layoutManager = GridLayoutManager(context,3)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = GridLayoutManager(context,3)
+    }
+
+    private fun initViews() {
+        recyclerView = view.findViewById(R.id.rv_ingredients_item)
+        startCookingButton = view.findViewById(R.id.btn_start_cooking)
     }
 
     private fun initObservers() {
     }
 
     private fun initListener() {
-        binding.btnStartCooking.setOnClickListener {
+        startCookingButton.setOnClickListener {
             navigationViewModel.showSearchIngredientFragment()
         }
     }

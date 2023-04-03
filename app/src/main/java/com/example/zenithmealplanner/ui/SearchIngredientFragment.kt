@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.zenithmealplanner.R
-import com.example.zenithmealplanner.databinding.FragmentIngredientBinding
-import com.example.zenithmealplanner.databinding.FragmentSearchIngredientBinding
-import com.example.zenithmealplanner.ui.adapters.IngredientItemsAdapter
 import com.example.zenithmealplanner.ui.adapters.IngredientSearchItemsAdapter
 
 class SearchIngredientFragment : Fragment() {
@@ -20,15 +18,16 @@ class SearchIngredientFragment : Fragment() {
         }
     }
 
-    private lateinit var binding: FragmentSearchIngredientBinding
+    private lateinit var view: View
     private lateinit var adapter: IngredientSearchItemsAdapter
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSearchIngredientBinding.inflate(layoutInflater)
-        return binding.root
+        view = layoutInflater.inflate(R.layout.fragment_search_ingredient,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,15 +35,21 @@ class SearchIngredientFragment : Fragment() {
 
         initViews()
 
+        initRecyclerView()
+
         initListener()
 
         initObservers()
     }
 
-    private fun initViews() {
+    private fun initRecyclerView() {
         adapter = IngredientSearchItemsAdapter()
-        binding.rvSearchIngredient.adapter = adapter
-        binding.rvSearchIngredient.layoutManager = GridLayoutManager(context,5)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = GridLayoutManager(context,5)
+    }
+
+    private fun initViews() {
+        recyclerView = view.findViewById(R.id.rv_search_ingredient)
     }
 
     private fun initObservers() {
